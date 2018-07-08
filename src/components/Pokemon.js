@@ -24,7 +24,7 @@ const Pokemon = ({ pokemon }) => (
 )
 
 function buyWithEther() {
-  console.log('BOUGHT POKEMON !');
+  console.log('Buy POKEMON !');
   web3.eth.getAccounts().then(console.log);
 }
 
