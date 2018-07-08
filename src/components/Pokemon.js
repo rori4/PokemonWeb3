@@ -1,16 +1,31 @@
 import React from 'react'
+import web3 from '../web3';
 
 const Pokemon = ({ pokemon }) => (
-  <div className="pokemon">
+  <div>
+    <div className="pokemon">
+      <button
+        type="button"
+        className="pokemon__sprite"
+        style={{
+          backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+            pokemon.id
+          }.png`})`
+        }}
+      />
+      <p className="pokemon__name">{pokemon.name}</p>
+    </div>
     <button
-      type="button"
-      className="pokemon__sprite"
-      style={{
-        backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`})`
-      }}
-    />
-    <p className="pokemon__name">{pokemon.name}</p>
+      onClick={() => {buyWithEther()}}
+    >
+      BUY POKEMON
+    </button>
   </div>
 )
+
+function buyWithEther() {
+  console.log('BOUGHT POKEMON !');
+  web3.eth.getAccounts().then(console.log);
+}
 
 export default Pokemon
